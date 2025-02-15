@@ -48,4 +48,5 @@ Even if we call it AI, blinky just uses a simple algorithm that chooses the best
     <img src="images/img_3.png" alt="" width="400">
 </p>
 
-For each possible tile that he can reach in the next step he computes the Manhattan distance between that tile and pacman, so he chooses the tile with the minimum distance.
+For each possible tile that he can reach in the next step he computes the Manhattan distance between that tile and pacman, so he chooses the tile with the minimum distance. A better solution would be a pathfinding algorithm such as A* that is also more computationally expensive: blinky will now consider all the map to choose the best path that leads to pacman instead
+of just taking a local decision (greedy approach).
