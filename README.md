@@ -26,11 +26,9 @@ the potentiometer values sampled with the ADC as a seed).
 
 Each 50ms the joystick position is captured and saved in a variable *position* which is read by the pacman movement handler (a timer interrupt handler). Pacman can eat the pills for 50pts and power pills for 100pts. The player wins the game if he/she eat
 all the pills before the timer expires, otherwise the game is lost.
-<br>
-<br>
+
 While pacman moves, our yellow hero will be followed by a red ghost that will get faster as the game progresses. After pacman moves, the ghost AI will compute the best direction to move on to reach pacman. Note that, as in the original game, blinky won't chose the opposite direction to the one he is currently following.
-<br>
-<br>
+
 If pacman eat a power pill the ghost will go in the frightened mode and try to escape pacman: the ghost AI will choose random direction.
 
 ## Game controls
