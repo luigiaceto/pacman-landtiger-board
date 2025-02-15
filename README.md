@@ -30,9 +30,9 @@ in two variables and updated using a timer (the same used for pacman, in this wa
 If pacman eat a power pill the ghost will go in frightened mode trying to escape from pacman: the ghost AI will now choose random a direction. While in frightened mode the ghost can be eaten for additional points and will respawn after some seconds.
 
 ## Game controls
-- **int0** : starts the game and pause it
-- **joystick** : moves pacman through the map, just select the direction desired and pacman will follow it unless you choose a new one
-- **potentiometer** : to achieve a better randomness, move the potentiometer before each game
+- **int0**: starts the game and pause it
+- **joystick**: moves pacman through the map, just select the direction desired and pacman will follow it unless you choose a new one
+- **potentiometer**: to achieve a better randomness, move the potentiometer before each game
 
 The score and the lifes of pacman are written on top of the GLCD.
 
