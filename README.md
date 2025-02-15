@@ -17,19 +17,19 @@ in the square.
 </p>
 
 ## How does it work?
-The map is drawn using a function that reads the matrix a fill the GLCD with wall blocks and basic pills (the power pills are spawned at random time and position using
+The map is drawn using a function that reads the matrix and fill the GLCD with wall blocks and basic pills (the power pills are spawned at random time and position using
 the potentiometer values sampled with the ADC as a seed).
 
 <p align="center">
-    <img src="images/img_2.png" alt="" width="400">
+    <img src="images/gameplay.gif" alt="" width="400">
 </p>
 
-Each 50ms the joystick position is captured and saved in a variable *position* which is read by the pacman movement handler (a timer interrupt handler). Pacman can eat the pills for 50pts and power pills for 100pts. The player wins the game if he/she eat
-all the pills before the timer expires, otherwise the game is lost.
+Each 50ms the joystick position is captured and saved in a variable *position* which is read by the pacman movement handler (a timer interrupt handler). Pacman can eat the pills for 50pts and power pills for 100pts. The player wins the game if he/she eat all the pills before the timer expires, otherwise the game is lost.
 
-While pacman moves, our yellow hero will be followed by a red ghost that will get faster as the game progresses. After pacman moves, the ghost AI will compute the best direction to move on to reach pacman. Note that, as in the original game, blinky won't chose the opposite direction to the one he is currently following.
+While pacman moves, our yellow hero will be followed by a red ghost that will get faster as the game progresses. After pacman moves, the ghost AI will compute the best direction to move on to reach pacman. Note that, as in the original game, blinky won't choose the opposite direction to the one he is currently following.
 
-If pacman eat a power pill the ghost will go in the frightened mode and try to escape pacman: the ghost AI will choose random direction.
+If pacman eat a power pill the ghost will go in the frightened mode and try to escape pacman: the ghost AI will choose random direction. While in the frightened mode the ghost can be eaten
+for additional points and will respawn after some seconds.
 
 ## Game controls
 - **int0** : starts the game and pause it
