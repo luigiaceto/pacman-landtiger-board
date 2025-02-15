@@ -25,9 +25,11 @@ in the square.
 The map is drawn using a function that reads the matrix and fill the GLCD with wall blocks and basic pills (the power pills are spawned at random time and position using
 the potentiometer values sampled with the ADC as a seed).
 
-Each 50ms the joystick position is captured and saved in a variable *position* which is read by the pacman movement handler (a timer interrupt handler). Pacman can eat the pills for 50pts and power pills for 100pts. The player wins the game if he/she eat all the pills before the timer expires, otherwise the game is lost.
+Each 50ms the joystick position is captured and saved in a variable *position* which is read by the pacman movement handler (a timer interrupt handler). The X and Y value of pacman on the matrix is saved separately and updated thorugh a timer interrupt handler.
+Pacman can eat the pills for 50pts and power pills for 100pts. The player wins the game if he/she eat all the pills before the timer expires, otherwise the game is lost.
 
-While pacman moves, our yellow hero will be followed by a red ghost that will get faster as the game progresses. After pacman moves, the ghost AI will compute the best direction to move on to reach pacman. Note that, as in the original game, blinky won't choose the opposite direction to the one he is currently following.
+While pacman moves, our yellow hero will be followed by a red ghost that will get faster as the game progresses. After pacman moves, the ghost AI will compute the best direction to move on to reach pacman. Note that, as in the original game, blinky won't choose the opposite direction to the one he is currently following. Similarly for pacman, blinky X and Y position is saved
+in two variables and updated using a timer (the same used for pacman, in this way possibles ambiguities during the movements are solved).
 
 If pacman eat a power pill the ghost will go in the frightened mode and try to escape pacman: the ghost AI will choose random direction. While in the frightened mode the ghost can be eaten
 for additional points and will respawn after some seconds.
@@ -38,3 +40,12 @@ for additional points and will respawn after some seconds.
 - **potentiometer** : to achieve a better randomness, move the potentiometer before each game
 
 The score and the lifes of pacman are written on top of the GLCD.
+
+## Blinky AI: not so smart
+Even if we call it AI, blinky just uses a simple algorithm that chooses the best tile to move on in the next step. He checks a total of 4 directions (3 actually, excluding the one where he is coming from).
+
+<p align="center">
+    <img src="images/img_3.png" alt="" width="400">
+</p>
+
+For each possible tile that he can reach in the next step he computes the Manhattan distance between that tile and pacman, so he chooses the tile with the minimum distance.
