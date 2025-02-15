@@ -37,4 +37,5 @@ If pacman eat a power pill the ghost will go in the frightened mode and try to e
 - **int0** : starts the game and pause it
 - **joystick** : moves pacman through the map, just select the direction desired and pacman will follow it unless you choose a new one
 - **potentiometer** : to achieve a better randomness, move the potentiometer before each game
-The score and the lifes of pacman are written on top of the GLCD
+
+The score and the lifes of pacman are written on top of the GLCD.
